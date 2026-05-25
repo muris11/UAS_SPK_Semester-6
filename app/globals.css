@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 8% 2%, rgba(37, 99, 235, 0.10), transparent 28rem),
+    radial-gradient(circle at 96% 8%, rgba(249, 115, 22, 0.12), transparent 25rem),
+    var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+code {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.hero-grid {
+  display: grid;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1.24fr 0.76fr;
+  }
+}
+
+.surface {
+  border: 1px solid rgb(226 232 240);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12px 42px rgba(15, 23, 42, 0.04);
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgb(29 78 216);
+}
+
+.nav-link {
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: rgb(51 65 85);
+  transition: 160ms ease;
+}
+
+.nav-link:hover {
+  background: rgb(241 245 249);
+  color: rgb(29 78 216);
+}
+
+.mode-active,
+.mode-idle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 800;
+  transition: 160ms ease;
+}
+
+.mode-active {
+  border: 1px solid rgb(15 23 42);
+  background: rgb(15 23 42);
+  color: white;
+}
+
+.mode-idle {
+  border: 1px solid rgb(226 232 240);
+  background: white;
+  color: rgb(51 65 85);
+}
+
+.mode-idle:hover {
+  border-color: rgb(37 99 235);
+  color: rgb(29 78 216);
+}
+
+.filter-input,
+.filter-select {
+  display: flex;
+  min-height: 3.25rem;
+  align-items: center;
+  gap: 0.65rem;
+  border: 1px solid rgb(226 232 240);
+  border-radius: 1rem;
+  background: rgb(248 250 252);
+  padding: 0.45rem 0.85rem;
+}
+
+.filter-input input {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.filter-select {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.15rem;
+}
+
+.filter-select select {
+  width: 100%;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  color: rgb(15 23 42);
+  font-size: 0.875rem;
+  font-weight: 700;
+  outline: none;
+}
+
+.action-primary,
+.action-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border-radius: 0.85rem;
+  padding: 0.7rem 0.95rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  transition: 160ms ease;
+}
+
+.action-primary {
+  border: 1px solid rgb(37 99 235);
+  background: rgb(37 99 235);
+  color: white;
+}
+
+.action-primary:disabled {
+  cursor: not-allowed;
+  border-color: rgb(148 163 184);
+  background: rgb(148 163 184);
+}
+
+.action-secondary {
+  border: 1px solid rgb(203 213 225);
+  background: white;
+  color: rgb(15 23 42);
+}
+
+.action-secondary:hover {
+  border-color: rgb(37 99 235);
+  color: rgb(29 78 216);
+}
+
+.tag-dark,
+.tag-muted {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+.tag-dark {
+  background: rgb(15 23 42);
+  color: white;
+}
+
+.tag-muted {
+  background: rgb(241 245 249);
+  color: rgb(71 85 105);
+}
+
+.option {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 0.8rem;
+  border: 1px solid rgb(226 232 240);
+  border-radius: 1rem;
+  background: white;
+  padding: 0.9rem;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.65;
+  color: rgb(51 65 85);
+  transition: 150ms ease;
+}
+
+.option:not(:disabled):hover {
+  border-color: rgb(37 99 235);
+  transform: translateY(-1px);
+}
+
+.option:disabled {
+  cursor: default;
+}
+
+.option-key {
+  display: grid;
+  height: 1.7rem;
+  width: 1.7rem;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 0.55rem;
+  background: rgb(241 245 249);
+  color: rgb(15 23 42);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.option-picked {
+  border-color: rgb(96 165 250);
+  background: rgb(239 246 255);
+}
+
+.option-picked .option-key {
+  background: rgb(37 99 235);
+  color: white;
+}
+
+.option-correct {
+  border-color: rgb(34 197 94);
+  background: rgb(240 253 244);
+}
+
+.option-correct .option-key {
+  background: rgb(22 163 74);
+  color: white;
+}
+
+.option-wrong {
+  border-color: rgb(239 68 68);
+  background: rgb(254 242 242);
+}
+
+.option-wrong .option-key {
+  background: rgb(220 38 38);
+  color: white;
+}

@@ -1,0 +1,410 @@
+{
+  "examProfile": {
+    "title": "UAS Sistem Pendukung Keputusan",
+    "format": "CBT Siakad · Pilihan Ganda",
+    "officialQuestionCount": 50,
+    "practiceBankCount": 60,
+    "mode": "Close book",
+    "focus": "Teori lebih dominan daripada hitungan",
+    "coveredTopics": [
+      "SAW",
+      "SMART",
+      "TOPSIS",
+      "AHP"
+    ],
+    "learningStrategy": [
+      "Hafalkan ciri pembeda normalisasi dan hasil akhir setiap metode.",
+      "Pahami arah benefit dan cost sebelum menghafal rumus.",
+      "Kuasai alur proses, karena soal teori sering mengubah urutan langkah.",
+      "Latih hitungan pendek yang menguji pemahaman konsep, bukan kalkulasi panjang."
+    ],
+    "practiceDistribution": [
+      {
+        "topic": "SAW",
+        "questions": 15,
+        "theory": 12,
+        "calculation": 3
+      },
+      {
+        "topic": "SMART",
+        "questions": 15,
+        "theory": 11,
+        "calculation": 4
+      },
+      {
+        "topic": "TOPSIS",
+        "questions": 15,
+        "theory": 11,
+        "calculation": 4
+      },
+      {
+        "topic": "AHP",
+        "questions": 15,
+        "theory": 11,
+        "calculation": 4
+      }
+    ]
+  },
+  "foundation": {
+    "title": "Posisi Metode dalam SPK",
+    "description": "SAW, SMART, TOPSIS, dan AHP termasuk pendekatan Multi Attribute Decision Making (MADM): alternatif telah tersedia, lalu dinilai menggunakan beberapa kriteria untuk membantu memilih alternatif terbaik.",
+    "decisionPhase": "Dalam fase pengambilan keputusan Simon, metode-metode ini terutama dipakai pada fase Choice setelah masalah, alternatif, kriteria, dan bobot telah dirancang pada fase Design.",
+    "caseStudy": "Seleksi penerima beasiswa: alternatif mahasiswa dinilai melalui IPK, penghasilan orang tua, prestasi, serta kehadiran/keaktifan organisasi."
+  },
+  "topics": [
+    {
+      "id": "saw",
+      "title": "SAW",
+      "fullName": "Simple Additive Weighting",
+      "badge": "Normalisasi Rasio",
+      "definition": "Metode MADM yang menyiapkan perbandingan alternatif melalui matriks keputusan dan normalisasi berdasarkan tipe kriteria benefit atau cost.",
+      "mainPurpose": "Menyamakan skala nilai antarkriteria sehingga nilai alternatif dapat dibandingkan secara adil.",
+      "inputOutput": {
+        "input": [
+          "Daftar alternatif",
+          "Daftar kriteria",
+          "Tipe benefit/cost",
+          "Nilai alternatif per kriteria"
+        ],
+        "output": [
+          "Matriks keputusan X",
+          "Matriks normalisasi R pada modul tahap dasar"
+        ]
+      },
+      "steps": [
+        "Susun matriks keputusan X = [xᵢⱼ]: baris adalah alternatif, kolom adalah kriteria.",
+        "Tentukan tipe masing-masing kriteria: benefit atau cost.",
+        "Cari nilai maksimum untuk benefit dan nilai minimum untuk cost.",
+        "Normalisasi setiap nilai menggunakan rumus sesuai tipe kriteria.",
+        "Tampilkan matriks keputusan dan matriks ternormalisasi; pada modul tahap dasar fokus berhenti pada tahap ini."
+      ],
+      "formulas": [
+        {
+          "label": "Benefit",
+          "expression": "rᵢⱼ = xᵢⱼ / max(xⱼ)",
+          "meaning": "Semakin besar nilai asli semakin baik."
+        },
+        {
+          "label": "Cost",
+          "expression": "rᵢⱼ = min(xⱼ) / xᵢⱼ",
+          "meaning": "Semakin kecil nilai asli semakin baik."
+        }
+      ],
+      "mustRemember": [
+        "Alternatif dengan nilai terbaik pada sebuah kriteria memperoleh normalisasi 1 jika pembagi valid.",
+        "IPK, prestasi, dan kehadiran pada kasus beasiswa adalah benefit; penghasilan orang tua adalah cost.",
+        "SAW pada modul praktikum yang diberikan menekankan matriks keputusan dan normalisasi, belum fokus pada perankingan akhir."
+      ],
+      "commonTraps": [
+        "Menukar rumus benefit dengan cost akan membalik makna keputusan.",
+        "Menganggap semua kolom sebagai benefit dapat menguntungkan alternatif dengan penghasilan orang tua paling tinggi pada kasus beasiswa.",
+        "Mengatakan hasil normalisasi saja sudah pasti merupakan ranking final, padahal modul dasar baru sampai tahap normalisasi."
+      ],
+      "implementation": [
+        "Data dibaca dari kriteria.csv dan alternatif.csv menggunakan pandas.",
+        "Perulangan per kolom membedakan rumus dengan kondisi benefit/cost.",
+        "Hasil X dan normalisasi ditampilkan pada halaman web Flask."
+      ]
+    },
+    {
+      "id": "smart",
+      "title": "SMART",
+      "fullName": "Simple Multi-Attribute Rating Technique",
+      "badge": "Utility Min–Max",
+      "definition": "Metode MADM yang mengubah nilai asli menjadi utility berskala 0–1, lalu mengalikan utility dengan bobot ternormalisasi untuk memperoleh preferensi.",
+      "mainPurpose": "Menilai seberapa berguna suatu nilai alternatif terhadap rentang nilai kriteria dan menghasilkan ranking yang mudah diinterpretasikan.",
+      "inputOutput": {
+        "input": [
+          "Alternatif",
+          "Kriteria benefit/cost",
+          "Bobot awal",
+          "Matriks keputusan X"
+        ],
+        "output": [
+          "Utility U",
+          "Bobot normalisasi w",
+          "Nilai preferensi V",
+          "Ranking"
+        ]
+      },
+      "steps": [
+        "Tentukan alternatif, kriteria, tipe, dan bobot awal.",
+        "Susun matriks keputusan X.",
+        "Cari nilai minimum dan maksimum tiap kriteria.",
+        "Transformasikan nilai ke utility U dengan min–max sesuai tipe kriteria.",
+        "Normalisasi bobot awal sampai jumlah bobot menjadi 1.",
+        "Hitung preferensi V sebagai jumlah utility dikalikan bobot.",
+        "Urutkan nilai V terbesar sebagai alternatif terbaik."
+      ],
+      "formulas": [
+        {
+          "label": "Utility Benefit",
+          "expression": "Uᵢⱼ = (xᵢⱼ − min xⱼ) / (max xⱼ − min xⱼ)",
+          "meaning": "Nilai terbesar mendekati atau sama dengan 1."
+        },
+        {
+          "label": "Utility Cost",
+          "expression": "Uᵢⱼ = (max xⱼ − xᵢⱼ) / (max xⱼ − min xⱼ)",
+          "meaning": "Nilai terkecil memperoleh utility tertinggi."
+        },
+        {
+          "label": "Normalisasi Bobot",
+          "expression": "wⱼ = w′ⱼ / Σw′ⱼ",
+          "meaning": "Total bobot akhir harus sama dengan 1."
+        },
+        {
+          "label": "Preferensi",
+          "expression": "Vᵢ = Σ(wⱼ × Uᵢⱼ)",
+          "meaning": "Nilai V terbesar merupakan pilihan terbaik."
+        }
+      ],
+      "mustRemember": [
+        "Jika max = min, praktikum menggunakan utility 0 agar tidak terjadi pembagian nol.",
+        "SMART berbeda dari SAW karena SMART menggunakan utility min–max, bukan normalisasi rasio max/min.",
+        "Perubahan bobot atau tipe kriteria dapat mengubah ranking meskipun nilai alternatif tidak berubah."
+      ],
+      "commonTraps": [
+        "Menyamakan utility SMART dengan normalisasi SAW.",
+        "Menggunakan bobot awal langsung tanpa menormalisasinya ketika rumus meminta bobot proporsional.",
+        "Memilih V terkecil sebagai alternatif terbaik; yang benar adalah V terbesar."
+      ],
+      "implementation": [
+        "CSV disiapkan dalam data/kriteria.csv dan data/alternatif.csv.",
+        "Tabel aplikasi menampilkan X, U, w, V, dan ranking.",
+        "Eksperimen modul meminta perubahan bobot, tipe kriteria, dan penambahan kriteria."
+      ]
+    },
+    {
+      "id": "topsis",
+      "title": "TOPSIS",
+      "fullName": "Technique for Order Preference by Similarity to Ideal Solution",
+      "badge": "Solusi Ideal",
+      "definition": "Metode SPK yang memilih alternatif berdasarkan kedekatan terhadap solusi ideal positif dan jarak terhadap solusi ideal negatif.",
+      "mainPurpose": "Memilih alternatif yang sekaligus paling mendekati kondisi terbaik dan paling menjauhi kondisi terburuk.",
+      "inputOutput": {
+        "input": [
+          "Alternatif",
+          "Kriteria benefit/cost",
+          "Bobot",
+          "Matriks keputusan"
+        ],
+        "output": [
+          "Normalisasi R",
+          "Normalisasi terbobot Y",
+          "A⁺ dan A⁻",
+          "D⁺ dan D⁻",
+          "V dan ranking"
+        ]
+      },
+      "steps": [
+        "Bentuk matriks keputusan.",
+        "Hitung normalisasi vektor untuk menghilangkan perbedaan satuan.",
+        "Kalikan hasil normalisasi dengan bobot untuk membentuk matriks Y.",
+        "Tentukan solusi ideal positif A⁺ dan solusi ideal negatif A⁻ sesuai tipe kriteria.",
+        "Hitung jarak setiap alternatif terhadap A⁺ dan A⁻.",
+        "Hitung preferensi V; urutkan dari nilai terbesar."
+      ],
+      "formulas": [
+        {
+          "label": "Normalisasi",
+          "expression": "rᵢⱼ = xᵢⱼ / √Σᵢ xᵢⱼ²",
+          "meaning": "Normalisasi vektor per kolom."
+        },
+        {
+          "label": "Terbobot",
+          "expression": "yᵢⱼ = wⱼ × rᵢⱼ",
+          "meaning": "Bobot diaplikasikan sebelum ideal ditetapkan."
+        },
+        {
+          "label": "Preferensi",
+          "expression": "Vᵢ = Dᵢ⁻ / (Dᵢ⁻ + Dᵢ⁺)",
+          "meaning": "Mendekati 1 berarti lebih baik."
+        }
+      ],
+      "mustRemember": [
+        "Benefit: A⁺ mengambil maksimum dan A⁻ mengambil minimum.",
+        "Cost: A⁺ mengambil minimum dan A⁻ mengambil maksimum.",
+        "Alternatif baik memiliki D⁺ kecil dan D⁻ besar.",
+        "Pada praktikum, data dikelola melalui MySQL dan matriks dibentuk dari data hasil JOIN/pivot_table()."
+      ],
+      "commonTraps": [
+        "Menyamakan ideal positif dengan maksimum untuk kriteria cost.",
+        "Memilih alternatif dengan jarak D⁺ paling besar.",
+        "Mengira bobot diterapkan setelah nilai preferensi, bukan pada matriks normalisasi terbobot."
+      ],
+      "implementation": [
+        "Tabel database: alternatif, kriteria, dan nilai_alternatif.",
+        "Query JOIN memperoleh nilai tiap alternatif dan kriteria.",
+        "pivot_table() mengubah data baris menjadi matriks keputusan untuk perhitungan TOPSIS."
+      ]
+    },
+    {
+      "id": "ahp",
+      "title": "AHP",
+      "fullName": "Analytical Hierarchy Process",
+      "badge": "Pairwise & Konsistensi",
+      "definition": "Metode keputusan yang memecah masalah kompleks ke dalam hierarki dan menggunakan perbandingan berpasangan untuk menentukan prioritas.",
+      "mainPurpose": "Menghasilkan bobot prioritas dari penilaian kepentingan dan memastikan penilaian tersebut cukup konsisten.",
+      "inputOutput": {
+        "input": [
+          "Goal",
+          "Kriteria",
+          "Alternatif",
+          "Nilai pairwise skala Saaty"
+        ],
+        "output": [
+          "Matriks normalisasi",
+          "Priority vector",
+          "CI dan CR",
+          "Ranking alternatif"
+        ]
+      },
+      "steps": [
+        "Tentukan goal, kriteria, dan alternatif dalam struktur hierarki.",
+        "Bangun matriks perbandingan berpasangan menggunakan skala Saaty.",
+        "Jumlahkan setiap kolom dan normalisasi elemen matriks.",
+        "Hitung priority vector dari rata-rata setiap baris.",
+        "Hitung λmax, CI, dan CR untuk menguji konsistensi.",
+        "Jika CR memenuhi batas, gunakan bobot untuk menghitung nilai akhir dan ranking."
+      ],
+      "formulas": [
+        {
+          "label": "Normalisasi",
+          "expression": "nᵢⱼ = aᵢⱼ / Σaᵢⱼ",
+          "meaning": "Elemen dibagi jumlah kolom."
+        },
+        {
+          "label": "Consistency Index",
+          "expression": "CI = (λmax − n) / (n − 1)",
+          "meaning": "Mengukur penyimpangan konsistensi."
+        },
+        {
+          "label": "Consistency Ratio",
+          "expression": "CR = CI / RI",
+          "meaning": "CR ≤ 0,10 berarti konsisten."
+        }
+      ],
+      "saatyScale": [
+        {
+          "value": "1",
+          "meaning": "Sama penting"
+        },
+        {
+          "value": "3",
+          "meaning": "Sedikit lebih penting"
+        },
+        {
+          "value": "5",
+          "meaning": "Lebih penting"
+        },
+        {
+          "value": "7",
+          "meaning": "Sangat penting"
+        },
+        {
+          "value": "9",
+          "meaning": "Mutlak lebih penting"
+        },
+        {
+          "value": "2, 4, 6, 8",
+          "meaning": "Nilai antara"
+        }
+      ],
+      "randomIndex": [
+        {
+          "n": 1,
+          "ri": "0,00"
+        },
+        {
+          "n": 2,
+          "ri": "0,00"
+        },
+        {
+          "n": 3,
+          "ri": "0,58"
+        },
+        {
+          "n": 4,
+          "ri": "0,90"
+        },
+        {
+          "n": 5,
+          "ri": "1,12"
+        },
+        {
+          "n": 6,
+          "ri": "1,24"
+        }
+      ],
+      "mustRemember": [
+        "Diagonal matriks pairwise selalu 1 dan elemen di bawah diagonal merupakan kebalikan elemen pasangannya.",
+        "Jika CR > 0,10, penilaian pairwise perlu direvisi.",
+        "Dalam contoh beasiswa pada materi, ranking akhir adalah Cici 0,466; Andi 0,303; Budi 0,231."
+      ],
+      "commonTraps": [
+        "Menganggap nilai 9 berarti kriteria kurang penting; nilai 9 justru menunjukkan kepentingan mutlak.",
+        "Lupa membuat nilai kebalikan, misalnya jika a₁₂ = 5 maka a₂₁ = 1/5.",
+        "Menganggap CI saja cukup untuk menilai konsistensi tanpa membandingkannya dengan RI melalui CR."
+      ],
+      "implementation": [
+        "Form Flask dinamis menerima daftar kriteria tanpa mengubah kode aplikasi.",
+        "User mengisi bagian atas matriks pairwise, nilai kebalikannya dibentuk otomatis.",
+        "NumPy digunakan untuk menghitung matriks, bobot, CI, dan CR."
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "aspect": "Fokus",
+      "SAW": "Normalisasi rasio",
+      "SMART": "Utility min–max",
+      "TOPSIS": "Kedekatan solusi ideal",
+      "AHP": "Prioritas pairwise"
+    },
+    {
+      "aspect": "Benefit/Cost",
+      "SAW": "Langsung pada normalisasi",
+      "SMART": "Langsung pada utility",
+      "TOPSIS": "Saat menentukan A⁺/A⁻",
+      "AHP": "Dinilai melalui pairwise"
+    },
+    {
+      "aspect": "Ciri Rumus",
+      "SAW": "x/max atau min/x",
+      "SMART": "(x−min)/(max−min)",
+      "TOPSIS": "V = D⁻/(D⁻+D⁺)",
+      "AHP": "CR = CI/RI"
+    },
+    {
+      "aspect": "Nilai terbaik",
+      "SAW": "Normalisasi paling baik",
+      "SMART": "V terbesar",
+      "TOPSIS": "V mendekati 1",
+      "AHP": "Skor akhir terbesar"
+    },
+    {
+      "aspect": "Data Praktikum",
+      "SAW": "CSV + Flask",
+      "SMART": "CSV + Flask",
+      "TOPSIS": "MySQL + Flask",
+      "AHP": "Input pairwise dinamis + Flask"
+    },
+    {
+      "aspect": "Jebakan teori",
+      "SAW": "Benefit/cost tertukar",
+      "SMART": "Disamakan dengan SAW",
+      "TOPSIS": "Cost pada A⁺ terbalik",
+      "AHP": "CR > 0,10 dianggap valid"
+    }
+  ],
+  "sources": [
+    "SPK_MODUL PRAKTIKUM_Metode SAW - Tahap Dasar.pdf",
+    "SMART (Simple Multi-Attribute Rating Technique).pdf",
+    "SPK_MODUL PRAKTIKUM_Metode SMART.pdf",
+    "TOPSIS.pdf",
+    "SPK_MODUL PRAKTIKUM_Metode TOPSIS.pdf",
+    "ANALYTICAL HIERARCHY PROCESS (AHP).pdf",
+    "SPK_MODUL PRAKTIKUM_Metode AHP.pdf",
+    "SPK_Pertemuan 4_Fase dan Parameter Pengambilan Keputusan.pptx"
+  ]
+}

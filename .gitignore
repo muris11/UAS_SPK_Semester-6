@@ -1,0 +1,14 @@
+.agent
+.agents
+.opencode
+.claude
+.cursor
+.vscode
+.next
+node_modules
+*.log
+.env
+.env.local
+.DS_Store
+.next-devtools-mcp
+playwright-mcp

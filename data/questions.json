@@ -1,0 +1,1022 @@
+[
+  {
+    "id": 1,
+    "topic": "SAW",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Matriks keputusan",
+    "question": "Pernyataan yang paling tepat mengenai matriks keputusan X pada SAW adalah ...",
+    "options": [
+      "Setiap baris menunjukkan kriteria dan setiap kolom selalu bobot",
+      "Setiap baris menunjukkan alternatif dan setiap kolom menunjukkan kriteria",
+      "Matriks hanya memuat nilai yang sudah dinormalisasi",
+      "Matriks berisi perbandingan berpasangan antarkriteria"
+    ],
+    "answer": 1,
+    "explanation": "Pada SAW, X = [xᵢⱼ] memuat nilai alternatif ke-i terhadap kriteria ke-j: baris = alternatif dan kolom = kriteria.",
+    "materialRef": "SAW · Matriks Keputusan"
+  },
+  {
+    "id": 2,
+    "topic": "SAW",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Benefit dan cost",
+    "question": "Dalam seleksi beasiswa, penghasilan orang tua seharusnya bertipe cost. Dampak konsep yang paling logis apabila keliru diperlakukan sebagai benefit adalah ...",
+    "options": [
+      "Mahasiswa dengan penghasilan orang tua lebih tinggi justru mendapat nilai normalisasi lebih menguntungkan",
+      "Semua alternatif otomatis memperoleh nilai nol",
+      "IPK tidak lagi dapat dimasukkan ke matriks keputusan",
+      "Normalisasi tidak dapat dilakukan untuk semua kriteria"
+    ],
+    "answer": 0,
+    "explanation": "Benefit menganggap semakin besar semakin baik. Mengubah penghasilan menjadi benefit dapat menguntungkan calon dari penghasilan lebih tinggi, berlawanan dengan logika prioritas beasiswa.",
+    "materialRef": "SAW · Benefit/Cost"
+  },
+  {
+    "id": 3,
+    "topic": "SAW",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Normalisasi",
+    "question": "Untuk kriteria benefit dengan nilai positif, alternatif yang memiliki nilai maksimum pada kolom tersebut akan memperoleh nilai normalisasi ...",
+    "options": [
+      "0",
+      "1",
+      "Nilai minimum kolom",
+      "Tidak dapat ditentukan"
+    ],
+    "answer": 1,
+    "explanation": "Rumus benefit adalah x/max(x). Ketika x sama dengan nilai maksimum, hasilnya adalah 1.",
+    "materialRef": "SAW · Rumus Benefit"
+  },
+  {
+    "id": 4,
+    "topic": "SAW",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Rumus cost",
+    "question": "Seorang mahasiswa menulis kode normalisasi cost sebagai `X[col] / max_values[col]`. Kesalahan konsep pada kode tersebut adalah ...",
+    "options": [
+      "Kode itu memakai arah benefit sehingga nilai cost yang besar menjadi lebih menguntungkan",
+      "Kode tidak dapat memproses tipe data numerik",
+      "Kode selalu menghasilkan nilai lebih dari 1",
+      "Kode tersebut sudah tepat untuk cost"
+    ],
+    "answer": 0,
+    "explanation": "Normalisasi cost menurut modul adalah min(xⱼ)/xᵢⱼ; x/max adalah pola benefit.",
+    "materialRef": "SAW · Rumus Cost"
+  },
+  {
+    "id": 5,
+    "topic": "SAW",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Batas praktikum",
+    "question": "Berdasarkan modul SAW tahap dasar, pernyataan yang paling akurat tentang hasil akhir praktikum adalah ...",
+    "options": [
+      "Aplikasi wajib menghasilkan CR dan status konsistensi",
+      "Aplikasi fokus membentuk X dan matriks normalisasi, bukan menuntaskan ranking berbobot",
+      "Aplikasi wajib menentukan solusi ideal positif dan negatif",
+      "Aplikasi membandingkan alternatif dengan pairwise Saaty"
+    ],
+    "answer": 1,
+    "explanation": "Modul SAW yang diberikan dibatasi pada penyusunan matriks keputusan dan normalisasi benefit/cost.",
+    "materialRef": "SAW · Ruang Lingkup Praktikum"
+  },
+  {
+    "id": 6,
+    "topic": "SAW",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Tujuan normalisasi",
+    "question": "Alasan paling mendasar normalisasi dibutuhkan sebelum membandingkan kriteria adalah ...",
+    "options": [
+      "Agar seluruh nama alternatif berubah menjadi kode",
+      "Agar skala nilai berbeda dapat dibandingkan secara adil",
+      "Agar setiap kriteria otomatis mempunyai bobot sama",
+      "Agar kriteria cost dihapus dari keputusan"
+    ],
+    "answer": 1,
+    "explanation": "Normalisasi menyamakan skala, misalnya IPK dan penghasilan tidak dibandingkan secara mentah.",
+    "materialRef": "SAW · Normalisasi"
+  },
+  {
+    "id": 7,
+    "topic": "SAW",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Perbandingan metode",
+    "question": "Pernyataan yang membedakan normalisasi SAW dari utility SMART secara tepat adalah ...",
+    "options": [
+      "SAW menggunakan x/max atau min/x, sedangkan SMART memakai transformasi min–max",
+      "SAW selalu memakai jarak solusi ideal, SMART memakai reciprocal matrix",
+      "SAW menguji CR, SMART menguji RI",
+      "SAW hanya dapat menangani cost, SMART hanya benefit"
+    ],
+    "answer": 0,
+    "explanation": "SAW memakai normalisasi rasio; SMART memakai utility min–max.",
+    "materialRef": "SAW vs SMART"
+  },
+  {
+    "id": 8,
+    "topic": "SAW",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Implementasi data",
+    "question": "Pada implementasi Flask SAW, alasan `kriteria.csv` dibutuhkan selain `alternatif.csv` adalah ...",
+    "options": [
+      "Untuk menyimpan tipe benefit/cost yang menentukan rumus tiap kolom",
+      "Untuk menyimpan hanya gambar antarmuka",
+      "Untuk mengganti semua nilai alternatif menjadi teks",
+      "Untuk menghitung RI AHP"
+    ],
+    "answer": 0,
+    "explanation": "Metadata kriteria, khususnya tipe benefit/cost, diperlukan untuk memilih rumus normalisasi yang benar.",
+    "materialRef": "SAW · Implementasi Flask"
+  },
+  {
+    "id": 9,
+    "topic": "SAW",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Interpretasi hasil",
+    "question": "Setelah matriks SAW dinormalisasi pada praktikum tahap dasar, mengapa belum tepat langsung menyatakan penerima beasiswa terbaik?",
+    "options": [
+      "Karena normalisasi hanya menyamakan skala; agregasi/bobot untuk keputusan final belum menjadi fokus tahap tersebut",
+      "Karena nilai normalisasi tidak pernah bisa ditampilkan pada web",
+      "Karena alternatif harus selalu dibandingkan memakai AHP dahulu",
+      "Karena SAW tidak mengenal kriteria"
+    ],
+    "answer": 0,
+    "explanation": "Matriks ternormalisasi adalah hasil tahap dasar; keputusan final biasanya memerlukan penggabungan penilaian sesuai desain metode lengkap.",
+    "materialRef": "SAW · Analisis Hasil"
+  },
+  {
+    "id": 10,
+    "topic": "SAW",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Identifikasi tipe",
+    "question": "Kombinasi tipe kriteria yang sesuai dengan studi kasus modul adalah ...",
+    "options": [
+      "IPK cost, penghasilan benefit, prestasi cost, kehadiran cost",
+      "IPK benefit, penghasilan orang tua cost, prestasi benefit, kehadiran benefit",
+      "Seluruh kriteria cost karena beasiswa adalah bantuan",
+      "Seluruh kriteria benefit karena seluruh nilai akan dinormalisasi"
+    ],
+    "answer": 1,
+    "explanation": "Modul menetapkan IPK, prestasi, dan kehadiran sebagai benefit serta penghasilan orang tua sebagai cost.",
+    "materialRef": "SAW · Studi Kasus"
+  },
+  {
+    "id": 11,
+    "topic": "SAW",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Alur algoritma",
+    "question": "Urutan paling tepat untuk SAW tahap dasar adalah ...",
+    "options": [
+      "Tentukan solusi ideal → hitung jarak → CR → ranking",
+      "Baca data → bentuk matriks keputusan → identifikasi benefit/cost → hitung max/min → normalisasi",
+      "Pairwise → normalisasi kolom → RI → utility",
+      "Utility → normalisasi bobot → pivot_table → λmax"
+    ],
+    "answer": 1,
+    "explanation": "Itulah alur yang sesuai dengan modul normalisasi SAW berbasis CSV dan Flask.",
+    "materialRef": "SAW · Langkah Praktikum"
+  },
+  {
+    "id": 12,
+    "topic": "SAW",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "MCDM",
+    "question": "Matriks keputusan disebut dasar utama metode SPK berbasis MCDM karena ...",
+    "options": [
+      "Matriks merepresentasikan kinerja setiap alternatif pada tiap kriteria",
+      "Matriks menggantikan kebutuhan menetapkan alternatif",
+      "Matriks hanya menyimpan halaman HTML",
+      "Matriks selalu berisi bobot pairwise"
+    ],
+    "answer": 0,
+    "explanation": "Nilai alternatif terhadap kriteria adalah bahan yang akan diolah metode keputusan multikriteria.",
+    "materialRef": "SAW · Matriks Keputusan"
+  },
+  {
+    "id": 13,
+    "topic": "SAW",
+    "difficulty": "Menengah-Sulit",
+    "type": "Hitungan",
+    "competency": "Benefit",
+    "question": "Nilai IPK tiga alternatif adalah 3,20; 3,60; dan 4,00. Jika IPK adalah benefit, nilai normalisasi untuk IPK 3,60 adalah ...",
+    "options": [
+      "0,80",
+      "0,90",
+      "1,11",
+      "0,40"
+    ],
+    "answer": 1,
+    "explanation": "Normalisasi benefit = 3,60 / 4,00 = 0,90.",
+    "materialRef": "SAW · Perhitungan Benefit"
+  },
+  {
+    "id": 14,
+    "topic": "SAW",
+    "difficulty": "Menengah-Sulit",
+    "type": "Hitungan",
+    "competency": "Cost",
+    "question": "Penghasilan orang tua tiga alternatif adalah Rp1.500.000, Rp2.000.000, dan Rp3.000.000. Jika bertipe cost, normalisasi alternatif berpenghasilan Rp3.000.000 adalah ...",
+    "options": [
+      "2,00",
+      "0,75",
+      "0,50",
+      "1,00"
+    ],
+    "answer": 2,
+    "explanation": "Normalisasi cost = min/x = 1.500.000 / 3.000.000 = 0,50.",
+    "materialRef": "SAW · Perhitungan Cost"
+  },
+  {
+    "id": 15,
+    "topic": "SAW",
+    "difficulty": "Sulit",
+    "type": "Hitungan",
+    "competency": "Interpretasi normalisasi",
+    "question": "Untuk kriteria cost, nilai alternatif A = 2 dan B = 4 dengan minimum kolom 2. Kesimpulan yang benar setelah normalisasi SAW adalah ...",
+    "options": [
+      "A = 0,50 dan B = 1,00 sehingga B lebih baik",
+      "A = 1,00 dan B = 0,50 sehingga A lebih baik",
+      "A dan B sama-sama 1,00 karena cost tidak dinormalisasi",
+      "A = 2 dan B = 4 karena normalisasi tidak mengubah nilai"
+    ],
+    "answer": 1,
+    "explanation": "Cost memakai min/x: A = 2/2 = 1; B = 2/4 = 0,5. Nilai kecil lebih baik.",
+    "materialRef": "SAW · Interpretasi Cost"
+  },
+  {
+    "id": 16,
+    "topic": "SMART",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Utility",
+    "question": "Fungsi utama utility dalam metode SMART adalah ...",
+    "options": [
+      "Mengubah nilai asli berbagai kriteria ke skala 0–1 agar comparable",
+      "Menghasilkan matriks reciprocal",
+      "Mengukur konsistensi penilai melalui CR",
+      "Menghasilkan jarak terhadap solusi ideal"
+    ],
+    "answer": 0,
+    "explanation": "SMART memakai utility untuk menyamakan skala dan memudahkan interpretasi nilai kegunaan.",
+    "materialRef": "SMART · Utility"
+  },
+  {
+    "id": 17,
+    "topic": "SMART",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Perbandingan metode",
+    "question": "Nilai alternatif pada suatu kriteria diubah melalui `(x − min)/(max − min)`. Rumus ini menunjukkan bahwa sistem sedang melakukan ...",
+    "options": [
+      "Normalisasi benefit SAW",
+      "Utility benefit SMART",
+      "Normalisasi vektor TOPSIS",
+      "Perhitungan priority vector AHP"
+    ],
+    "answer": 1,
+    "explanation": "Rumus tersebut adalah utility min–max untuk kriteria benefit pada SMART.",
+    "materialRef": "SMART · Rumus Benefit"
+  },
+  {
+    "id": 18,
+    "topic": "SMART",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Cost utility",
+    "question": "Pada kriteria cost SMART, alternatif bernilai terkecil akan cenderung mendapatkan utility tertinggi karena ...",
+    "options": [
+      "Pembilang memakai max − x sehingga nilai x kecil memberi selisih lebih besar",
+      "Bobot cost selalu bernilai negatif",
+      "Nilai cost tidak ikut dihitung",
+      "Utility cost selalu identik untuk semua alternatif"
+    ],
+    "answer": 0,
+    "explanation": "Dengan U = (max − x)/(max − min), x yang lebih kecil menghasilkan utility lebih besar.",
+    "materialRef": "SMART · Rumus Cost"
+  },
+  {
+    "id": 19,
+    "topic": "SMART",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Kasus max=min",
+    "question": "Dalam praktikum SMART, bila seluruh alternatif memiliki nilai yang sama pada satu kriteria sehingga max = min, utility kolom tersebut diisi 0 terutama untuk ...",
+    "options": [
+      "Menghindari pembagian dengan nol pada perhitungan",
+      "Membuat alternatif pertama selalu menang",
+      "Mengubah kriteria menjadi cost secara otomatis",
+      "Menghitung CR"
+    ],
+    "answer": 0,
+    "explanation": "Penyebut max−min menjadi nol; modul menggunakan 0 untuk menghindari error perhitungan.",
+    "materialRef": "SMART · Kondisi Khusus"
+  },
+  {
+    "id": 20,
+    "topic": "SMART",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Bobot",
+    "question": "Alasan bobot awal dalam SMART dinormalisasi adalah ...",
+    "options": [
+      "Supaya total pengaruh seluruh kriteria menjadi proporsi 1",
+      "Supaya nilai utility berubah menjadi data mentah",
+      "Supaya semua bobot menjadi sama besar tanpa memperhatikan prioritas",
+      "Supaya matriks menjadi reciprocal"
+    ],
+    "answer": 0,
+    "explanation": "Normalisasi bobot mengubah bobot awal menjadi proporsi yang totalnya 1.",
+    "materialRef": "SMART · Normalisasi Bobot"
+  },
+  {
+    "id": 21,
+    "topic": "SMART",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Pengaruh bobot",
+    "question": "Alternatif A sangat unggul pada IPK tetapi lemah pada kriteria lain. Apabila bobot IPK dinaikkan cukup besar, inferensi paling tepat adalah ...",
+    "options": [
+      "Skor V A berpotensi meningkat relatif terhadap alternatif lain",
+      "Skor seluruh alternatif pasti menjadi nol",
+      "Jenis utility otomatis berubah menjadi SAW",
+      "Ranking tidak mungkin berubah karena nilai asli tetap"
+    ],
+    "answer": 0,
+    "explanation": "Skor V adalah agregasi bobot × utility; memperbesar bobot kriteria tempat A unggul dapat mengubah ranking.",
+    "materialRef": "SMART · Sensitivitas Bobot"
+  },
+  {
+    "id": 22,
+    "topic": "SMART",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Output",
+    "question": "Rangkaian tabel hasil yang sesuai dengan aplikasi SMART pada modul adalah ...",
+    "options": [
+      "X, U, w, V, dan ranking",
+      "X, λmax, RI, CR, dan reciprocal",
+      "R, A⁺, A⁻, D⁺, D⁻ saja",
+      "Database, ERD, CI, dan server log"
+    ],
+    "answer": 0,
+    "explanation": "Modul SMART meminta tampilan matriks X, utility U, bobot w, nilai V, dan ranking.",
+    "materialRef": "SMART · Output Aplikasi"
+  },
+  {
+    "id": 23,
+    "topic": "SMART",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Kesalahan implementasi",
+    "question": "Seorang programmer menghitung `V = U.sum(axis=1)` tanpa mengalikan bobot. Kekurangan utama langkah tersebut adalah ...",
+    "options": [
+      "Semua kriteria diperlakukan seolah memiliki pengaruh yang sama",
+      "Nilai utility otomatis berubah menjadi cost",
+      "Matriks tidak lagi mempunyai baris alternatif",
+      "Aplikasi akan menghitung solusi ideal TOPSIS"
+    ],
+    "answer": 0,
+    "explanation": "Preferensi SMART harus mempertimbangkan bobot, yaitu Σ(w × U). Tanpa bobot, prioritas kriteria hilang.",
+    "materialRef": "SMART · Preferensi"
+  },
+  {
+    "id": 24,
+    "topic": "SMART",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Perubahan tipe",
+    "question": "Bila tipe IPK dalam SMART salah diubah dari benefit menjadi cost sementara datanya tidak berubah, konsekuensi konsep yang benar adalah ...",
+    "options": [
+      "IPK rendah akan memperoleh utility lebih tinggi daripada IPK tinggi",
+      "IPK tinggi tetap pasti mendapat utility tertinggi",
+      "Utility tidak dipengaruhi tipe kriteria",
+      "Bobot IPK otomatis menjadi nol"
+    ],
+    "answer": 0,
+    "explanation": "Pada utility cost, nilai kecil lebih diuntungkan, sehingga interpretasi IPK menjadi terbalik.",
+    "materialRef": "SMART · Benefit/Cost"
+  },
+  {
+    "id": 25,
+    "topic": "SMART",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Dataset",
+    "question": "Dalam modul SMART, data keputusan awal disimpan sebagai ...",
+    "options": [
+      "Tabel MySQL alternatif, kriteria, nilai_alternatif saja",
+      "CSV kriteria dan CSV alternatif yang dibaca menjadi DataFrame",
+      "Matriks pairwise dinamis tanpa alternatif",
+      "Gambar diagram solusi ideal"
+    ],
+    "answer": 1,
+    "explanation": "Praktikum SMART membaca `data/kriteria.csv` dan `data/alternatif.csv` dengan pandas.",
+    "materialRef": "SMART · Implementasi"
+  },
+  {
+    "id": 26,
+    "topic": "SMART",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "SMART vs SAW",
+    "question": "Mengapa dua metode SMART dan SAW dapat memberi hasil berbeda meski dataset dan bobot sama?",
+    "options": [
+      "Transformasi nilainya berbeda: SMART min–max utility, SAW normalisasi rasio",
+      "SMART tidak membutuhkan kriteria sedangkan SAW membutuhkan",
+      "SAW selalu memakai database dan SMART selalu memakai AHP",
+      "SMART mengabaikan seluruh bobot"
+    ],
+    "answer": 0,
+    "explanation": "Perbedaan rumus transformasi dapat mengubah jarak relatif nilai sebelum diagregasikan.",
+    "materialRef": "SMART vs SAW"
+  },
+  {
+    "id": 27,
+    "topic": "SMART",
+    "difficulty": "Menengah-Sulit",
+    "type": "Hitungan",
+    "competency": "Normalisasi bobot",
+    "question": "Bobot awal empat kriteria adalah 5, 4, 3, dan 3. Bobot normalisasi untuk kriteria berbobot awal 5 adalah ...",
+    "options": [
+      "0,200",
+      "0,250",
+      "0,333",
+      "0,500"
+    ],
+    "answer": 2,
+    "explanation": "Total bobot = 15, sehingga w = 5/15 = 0,333.",
+    "materialRef": "SMART · Normalisasi Bobot"
+  },
+  {
+    "id": 28,
+    "topic": "SMART",
+    "difficulty": "Menengah-Sulit",
+    "type": "Hitungan",
+    "competency": "Utility benefit",
+    "question": "Nilai prestasi minimum = 2, maksimum = 6, dan nilai mahasiswa A = 5. Jika prestasi bertipe benefit, utility A adalah ...",
+    "options": [
+      "0,25",
+      "0,50",
+      "0,75",
+      "1,25"
+    ],
+    "answer": 2,
+    "explanation": "U = (5−2)/(6−2) = 3/4 = 0,75.",
+    "materialRef": "SMART · Utility Benefit"
+  },
+  {
+    "id": 29,
+    "topic": "SMART",
+    "difficulty": "Menengah-Sulit",
+    "type": "Hitungan",
+    "competency": "Utility cost",
+    "question": "Untuk kriteria cost, min = 1, max = 5, dan nilai alternatif B = 3. Utility B adalah ...",
+    "options": [
+      "0,25",
+      "0,50",
+      "0,75",
+      "1,00"
+    ],
+    "answer": 1,
+    "explanation": "U = (5−3)/(5−1) = 2/4 = 0,50.",
+    "materialRef": "SMART · Utility Cost"
+  },
+  {
+    "id": 30,
+    "topic": "SMART",
+    "difficulty": "Sulit",
+    "type": "Hitungan",
+    "competency": "Preferensi",
+    "question": "Alternatif memiliki utility [0,80; 0,50; 1,00] dengan bobot normalisasi [0,40; 0,35; 0,25]. Nilai preferensinya adalah ...",
+    "options": [
+      "0,625",
+      "0,745",
+      "0,800",
+      "1,000"
+    ],
+    "answer": 1,
+    "explanation": "V = (0,80×0,40) + (0,50×0,35) + (1,00×0,25) = 0,32 + 0,175 + 0,25 = 0,745.",
+    "materialRef": "SMART · Nilai Preferensi"
+  },
+  {
+    "id": 31,
+    "topic": "TOPSIS",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Konsep ideal",
+    "question": "Alternatif yang dipilih TOPSIS secara konseptual adalah alternatif yang ...",
+    "options": [
+      "Paling dekat dengan A⁺ dan paling jauh dari A⁻",
+      "Paling jauh dari A⁺ dan paling dekat dengan A⁻",
+      "Memiliki CR terkecil",
+      "Mempunyai matriks reciprocal paling rapi"
+    ],
+    "answer": 0,
+    "explanation": "TOPSIS menilai kedekatan pada solusi ideal positif sekaligus jarak dari solusi ideal negatif.",
+    "materialRef": "TOPSIS · Konsep Dasar"
+  },
+  {
+    "id": 32,
+    "topic": "TOPSIS",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Urutan langkah",
+    "question": "Urutan proses TOPSIS yang benar setelah matriks keputusan terbentuk adalah ...",
+    "options": [
+      "Pairwise → CI → CR → ranking",
+      "Normalisasi → normalisasi terbobot → A⁺/A⁻ → jarak → preferensi → ranking",
+      "Utility → RI → preferensi → SQL",
+      "A⁺/A⁻ → normalisasi → bobot → matriks keputusan"
+    ],
+    "answer": 1,
+    "explanation": "Alur TOPSIS mengikuti normalisasi, pembobotan, solusi ideal, jarak, lalu preferensi dan ranking.",
+    "materialRef": "TOPSIS · Tahapan"
+  },
+  {
+    "id": 33,
+    "topic": "TOPSIS",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Normalisasi vektor",
+    "question": "Normalisasi pada TOPSIS menggunakan penyebut akar jumlah kuadrat nilai dalam satu kolom terutama untuk ...",
+    "options": [
+      "Menghilangkan perbedaan satuan antarkriteria",
+      "Menentukan nilai reciprocal matriks",
+      "Menghitung konsistensi penilai",
+      "Mengubah semua cost menjadi benefit secara otomatis"
+    ],
+    "answer": 0,
+    "explanation": "Normalisasi vektor menyetarakan skala data sebelum bobot diterapkan.",
+    "materialRef": "TOPSIS · Normalisasi"
+  },
+  {
+    "id": 34,
+    "topic": "TOPSIS",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Ideal cost",
+    "question": "Untuk kriteria penghasilan orang tua yang bertipe cost, pemilihan solusi ideal yang benar adalah ...",
+    "options": [
+      "A⁺ memakai nilai maksimum dan A⁻ memakai minimum",
+      "A⁺ memakai nilai minimum dan A⁻ memakai maksimum",
+      "A⁺ dan A⁻ selalu sama dengan rata-rata",
+      "A⁺ memakai nilai bobot dan A⁻ memakai CR"
+    ],
+    "answer": 1,
+    "explanation": "Pada cost, nilai terendah adalah kondisi terbaik sehingga menjadi komponen A⁺.",
+    "materialRef": "TOPSIS · A⁺/A⁻"
+  },
+  {
+    "id": 35,
+    "topic": "TOPSIS",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Jarak ideal",
+    "question": "Dua alternatif memiliki D⁺ yang sama, tetapi alternatif B mempunyai D⁻ lebih besar. Jika faktor lain sama, TOPSIS cenderung memilih ...",
+    "options": [
+      "Alternatif B, karena lebih jauh dari solusi ideal negatif",
+      "Alternatif A, karena D⁻ besar adalah buruk",
+      "Keduanya pasti ditolak",
+      "Tidak dapat dihitung karena D⁻ tidak dipakai"
+    ],
+    "answer": 0,
+    "explanation": "Dengan D⁺ sama, D⁻ lebih besar menaikkan V = D⁻/(D⁻+D⁺).",
+    "materialRef": "TOPSIS · Jarak"
+  },
+  {
+    "id": 36,
+    "topic": "TOPSIS",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Matriks terbobot",
+    "question": "Dalam TOPSIS, `yᵢⱼ = wⱼ × rᵢⱼ` menghasilkan ...",
+    "options": [
+      "Matriks normalisasi terbobot",
+      "Consistency ratio",
+      "Utility cost SMART",
+      "Matriks pairwise AHP"
+    ],
+    "answer": 0,
+    "explanation": "Y merupakan hasil normalisasi R yang telah diberi pengaruh bobot kriteria.",
+    "materialRef": "TOPSIS · Matriks Y"
+  },
+  {
+    "id": 37,
+    "topic": "TOPSIS",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Kesalahan interpretasi",
+    "question": "Pernyataan berikut yang SALAH tentang preferensi TOPSIS adalah ...",
+    "options": [
+      "Nilai mendekati 1 menunjukkan alternatif semakin baik",
+      "D⁺ yang semakin kecil mendukung hasil lebih baik",
+      "D⁻ yang semakin besar mendukung hasil lebih baik",
+      "Nilai V terkecil selalu menjadi ranking pertama"
+    ],
+    "answer": 3,
+    "explanation": "Ranking TOPSIS mengutamakan nilai V terbesar atau paling mendekati 1.",
+    "materialRef": "TOPSIS · Preferensi"
+  },
+  {
+    "id": 38,
+    "topic": "TOPSIS",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Database",
+    "question": "Fungsi `pivot_table()` dalam praktikum TOPSIS berbasis MySQL adalah ...",
+    "options": [
+      "Mengubah data nilai berbentuk baris hasil query menjadi matriks alternatif × kriteria",
+      "Membuat UI login secara otomatis",
+      "Menghitung CR dari pairwise comparison",
+      "Menghapus tabel alternatif"
+    ],
+    "answer": 0,
+    "explanation": "Data relational perlu diubah menjadi bentuk matriks keputusan sebelum TOPSIS dihitung.",
+    "materialRef": "TOPSIS · Implementasi Database"
+  },
+  {
+    "id": 39,
+    "topic": "TOPSIS",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Skema data",
+    "question": "Tiga tabel utama pada modul TOPSIS adalah ...",
+    "options": [
+      "alternatif, kriteria, nilai_alternatif",
+      "users, sessions, tokens",
+      "pairwise, ri, cr",
+      "utility, normalisasi, hasil_html"
+    ],
+    "answer": 0,
+    "explanation": "Database memisahkan entitas alternatif, kriteria, dan nilai setiap alternatif pada kriteria.",
+    "materialRef": "TOPSIS · Database"
+  },
+  {
+    "id": 40,
+    "topic": "TOPSIS",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Bobot dan ideal",
+    "question": "Mengubah bobot salah satu kriteria dalam TOPSIS dapat mengubah solusi ideal terbobot dan ranking karena ...",
+    "options": [
+      "Bobot mengubah nilai Y yang menjadi dasar penentuan A⁺, A⁻ dan jarak",
+      "Bobot hanya mengubah tampilan HTML tanpa mempengaruhi hitungan",
+      "Bobot dipakai sesudah ranking ditetapkan",
+      "Bobot hanya berfungsi untuk menghitung RI"
+    ],
+    "answer": 0,
+    "explanation": "Ideal dan jarak TOPSIS dibentuk dari matriks normalisasi terbobot Y.",
+    "materialRef": "TOPSIS · Sensitivitas Bobot"
+  },
+  {
+    "id": 41,
+    "topic": "TOPSIS",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Perbandingan metode",
+    "question": "Ciri yang paling jelas membedakan TOPSIS dari SMART adalah ...",
+    "options": [
+      "TOPSIS menggunakan dua solusi ideal dan jarak, SMART menggunakan utility serta penjumlahan berbobot",
+      "TOPSIS tidak menggunakan bobot sedangkan SMART selalu memakai CR",
+      "SMART menyusun matriks reciprocal sedangkan TOPSIS memakai RI",
+      "TOPSIS hanya dapat menangani satu kriteria"
+    ],
+    "answer": 0,
+    "explanation": "TOPSIS berpusat pada kedekatan/jarak ideal; SMART pada utility min–max dan preferensi berbobot.",
+    "materialRef": "TOPSIS vs SMART"
+  },
+  {
+    "id": 42,
+    "topic": "TOPSIS",
+    "difficulty": "Menengah-Sulit",
+    "type": "Hitungan",
+    "competency": "Preferensi",
+    "question": "Jika suatu alternatif mempunyai D⁺ = 0,20 dan D⁻ = 0,80, nilai preferensi TOPSIS adalah ...",
+    "options": [
+      "0,20",
+      "0,50",
+      "0,80",
+      "1,20"
+    ],
+    "answer": 2,
+    "explanation": "V = 0,80/(0,80+0,20) = 0,80.",
+    "materialRef": "TOPSIS · Nilai V"
+  },
+  {
+    "id": 43,
+    "topic": "TOPSIS",
+    "difficulty": "Sulit",
+    "type": "Hitungan",
+    "competency": "Perbandingan V",
+    "question": "Alternatif A memiliki D⁺=0,10 dan D⁻=0,40; alternatif B memiliki D⁺=0,20 dan D⁻=0,60. Berdasarkan V, ranking lebih tinggi adalah ...",
+    "options": [
+      "A karena Vₐ=0,80 lebih besar dari Vᵦ=0,75",
+      "B karena D⁻ B lebih besar tanpa perlu menghitung V",
+      "A dan B sama karena D⁺ berbeda",
+      "B karena Vᵦ=0,80 dan Vₐ=0,75"
+    ],
+    "answer": 0,
+    "explanation": "Vₐ = 0,40/(0,50)=0,80; Vᵦ=0,60/(0,80)=0,75. A lebih tinggi.",
+    "materialRef": "TOPSIS · Ranking"
+  },
+  {
+    "id": 44,
+    "topic": "TOPSIS",
+    "difficulty": "Sulit",
+    "type": "Hitungan",
+    "competency": "Ideal benefit/cost",
+    "question": "Pada matriks Y, nilai kriteria benefit adalah [0,20; 0,35; 0,30] dan nilai kriteria cost adalah [0,40; 0,25; 0,50]. Pasangan komponen A⁺ yang benar adalah ...",
+    "options": [
+      "[0,20; 0,50]",
+      "[0,35; 0,25]",
+      "[0,35; 0,50]",
+      "[0,20; 0,25]"
+    ],
+    "answer": 1,
+    "explanation": "A⁺ mengambil maksimum untuk benefit (0,35) dan minimum untuk cost (0,25).",
+    "materialRef": "TOPSIS · Ideal Positif"
+  },
+  {
+    "id": 45,
+    "topic": "TOPSIS",
+    "difficulty": "Sulit",
+    "type": "Hitungan",
+    "competency": "Kondisi ideal",
+    "question": "Jika sebuah alternatif tepat sama dengan solusi ideal positif dan berbeda dari solusi ideal negatif, maka secara teori nilai preferensinya adalah ...",
+    "options": [
+      "0 karena D⁺ = 0",
+      "0,5 karena kedua jarak diabaikan",
+      "1 karena D⁺ = 0 dan D⁻ > 0",
+      "Tidak dapat ditentukan karena TOPSIS tidak memakai jarak"
+    ],
+    "answer": 2,
+    "explanation": "V = D⁻/(D⁻+0) = 1 selama D⁻ lebih dari nol.",
+    "materialRef": "TOPSIS · Interpretasi Ideal"
+  },
+  {
+    "id": 46,
+    "topic": "AHP",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Konsep dasar",
+    "question": "Karakteristik yang paling khas dari AHP dibanding metode lain pada kisi-kisi adalah ...",
+    "options": [
+      "Menggunakan hierarki, perbandingan berpasangan, dan pengujian konsistensi",
+      "Hanya menggunakan utility min–max",
+      "Hanya mengambil nilai maksimum dan minimum tanpa bobot",
+      "Menggunakan jarak terhadap solusi ideal positif dan negatif"
+    ],
+    "answer": 0,
+    "explanation": "AHP menggunakan struktur goal–kriteria–alternatif, pairwise comparison, serta CI/CR.",
+    "materialRef": "AHP · Konsep Dasar"
+  },
+  {
+    "id": 47,
+    "topic": "AHP",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Hierarki",
+    "question": "Urutan level hierarki AHP pada studi kasus beasiswa yang tepat adalah ...",
+    "options": [
+      "Alternatif → Goal → Kriteria",
+      "Goal → Kriteria → Alternatif",
+      "Kriteria → Normalisasi → Database",
+      "Bobot → CI → Goal"
+    ],
+    "answer": 1,
+    "explanation": "Goal berada di puncak, diikuti kriteria, kemudian alternatif yang dinilai.",
+    "materialRef": "AHP · Struktur Hierarki"
+  },
+  {
+    "id": 48,
+    "topic": "AHP",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Reciprocal matrix",
+    "question": "Jika dalam matriks AHP perbandingan C1 terhadap C2 diberi nilai 5, nilai C2 terhadap C1 seharusnya ...",
+    "options": [
+      "5",
+      "1/5",
+      "0",
+      "1"
+    ],
+    "answer": 1,
+    "explanation": "Matriks pairwise AHP bersifat reciprocal: a₂₁ = 1/a₁₂.",
+    "materialRef": "AHP · Matriks Pairwise"
+  },
+  {
+    "id": 49,
+    "topic": "AHP",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Skala Saaty",
+    "question": "Menurut skala Saaty pada materi, nilai 7 menggambarkan bahwa satu elemen dibanding elemen lain adalah ...",
+    "options": [
+      "Sama penting",
+      "Sedikit lebih penting",
+      "Sangat penting",
+      "Mutlak lebih penting"
+    ],
+    "answer": 2,
+    "explanation": "Skala: 1 sama; 3 sedikit lebih; 5 lebih; 7 sangat; 9 mutlak lebih penting.",
+    "materialRef": "AHP · Skala Saaty"
+  },
+  {
+    "id": 50,
+    "topic": "AHP",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Jumlah input pairwise",
+    "question": "Jika aplikasi AHP meminta user hanya mengisi bagian atas matriks untuk 4 kriteria, jumlah penilaian perbandingan unik yang harus diinput adalah ...",
+    "options": [
+      "4",
+      "6",
+      "8",
+      "16"
+    ],
+    "answer": 1,
+    "explanation": "Jumlah pasangan unik adalah n(n−1)/2 = 4×3/2 = 6; diagonal otomatis 1 dan bagian bawah adalah reciprocal.",
+    "materialRef": "AHP · Pairwise Dinamis"
+  },
+  {
+    "id": 51,
+    "topic": "AHP",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Bobot prioritas",
+    "question": "Dalam pendekatan normalisasi matriks pada modul AHP, bobot prioritas kriteria diperoleh dari ...",
+    "options": [
+      "Rata-rata setiap baris matriks normalisasi",
+      "Nilai minimum setiap kolom data alternatif",
+      "Jarak setiap alternatif terhadap A⁺",
+      "Utility maksimum dikurangi minimum"
+    ],
+    "answer": 0,
+    "explanation": "Setelah normalisasi kolom, rata-rata baris menjadi priority vector.",
+    "materialRef": "AHP · Priority Vector"
+  },
+  {
+    "id": 52,
+    "topic": "AHP",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Konsistensi",
+    "question": "Fungsi utama pengujian CR pada AHP adalah ...",
+    "options": [
+      "Memeriksa apakah penilaian pairwise cukup logis dan konsisten",
+      "Menentukan nilai maksimum kriteria benefit",
+      "Mengubah nilai asli ke utility 0–1",
+      "Menentukan skema tabel database"
+    ],
+    "answer": 0,
+    "explanation": "CR mengevaluasi konsistensi penilaian berpasangan sebelum bobot dipercaya.",
+    "materialRef": "AHP · CR"
+  },
+  {
+    "id": 53,
+    "topic": "AHP",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "Batas CR",
+    "question": "Jika nilai CR hasil perhitungan adalah 0,128, tindakan sesuai materi adalah ...",
+    "options": [
+      "Menyatakan matriks konsisten karena CR positif",
+      "Merevisi penilaian pairwise karena CR > 0,10",
+      "Memilih alternatif pertama tanpa ranking",
+      "Mengganti seluruh kriteria menjadi cost"
+    ],
+    "answer": 1,
+    "explanation": "Materi menetapkan CR ≤ 0,10 konsisten; CR di atas batas berarti perlu revisi penilaian.",
+    "materialRef": "AHP · Interpretasi CR"
+  },
+  {
+    "id": 54,
+    "topic": "AHP",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "CI dan CR",
+    "question": "Mengapa CI belum cukup digunakan sendiri untuk menyatakan konsistensi AHP?",
+    "options": [
+      "CI perlu dibandingkan terhadap Random Index melalui CR sesuai ukuran matriks",
+      "CI selalu bernilai nol untuk semua matriks",
+      "CI hanya dipakai pada SAW",
+      "CI menghitung solusi ideal negatif"
+    ],
+    "answer": 0,
+    "explanation": "CR = CI/RI mempertimbangkan indeks acak yang bergantung pada jumlah kriteria.",
+    "materialRef": "AHP · Konsistensi"
+  },
+  {
+    "id": 55,
+    "topic": "AHP",
+    "difficulty": "Menengah-Sulit",
+    "type": "Teori",
+    "competency": "RI",
+    "question": "Berdasarkan tabel RI pada materi, nilai RI untuk matriks dengan 4 kriteria adalah ...",
+    "options": [
+      "0,58",
+      "0,90",
+      "1,12",
+      "1,24"
+    ],
+    "answer": 1,
+    "explanation": "Tabel RI materi menunjukkan n=4 mempunyai RI=0,90.",
+    "materialRef": "AHP · Random Index"
+  },
+  {
+    "id": 56,
+    "topic": "AHP",
+    "difficulty": "Sulit",
+    "type": "Teori",
+    "competency": "Implementasi dinamis",
+    "question": "Keuntungan utama form AHP dinamis dibanding matriks yang ditulis hardcode dalam `app.py` adalah ...",
+    "options": [
+      "Jumlah dan nama kriteria dapat diubah melalui input tanpa mengubah kode perhitungan inti",
+      "Sistem tidak perlu lagi menghitung bobot",
+      "Semua penilaian otomatis konsisten tanpa CR",
+      "Aplikasi tidak membutuhkan data pengguna sama sekali"
+    ],
+    "answer": 0,
+    "explanation": "Modul menekankan input kriteria dan pembentukan matriks pairwise secara dinamis.",
+    "materialRef": "AHP · Flask Dinamis"
+  },
+  {
+    "id": 57,
+    "topic": "AHP",
+    "difficulty": "Menengah-Sulit",
+    "type": "Hitungan",
+    "competency": "CI",
+    "question": "Jika n = 4 dan λmax = 4,18, nilai CI adalah ...",
+    "options": [
+      "0,020",
+      "0,060",
+      "0,180",
+      "0,900"
+    ],
+    "answer": 1,
+    "explanation": "CI = (4,18−4)/(4−1) = 0,18/3 = 0,06.",
+    "materialRef": "AHP · Perhitungan CI"
+  },
+  {
+    "id": 58,
+    "topic": "AHP",
+    "difficulty": "Sulit",
+    "type": "Hitungan",
+    "competency": "CR",
+    "question": "Untuk n = 4 diketahui CI = 0,06 dan RI = 0,90. Kesimpulan konsistensinya adalah ...",
+    "options": [
+      "CR = 0,667 sehingga tidak konsisten",
+      "CR = 0,067 sehingga konsisten",
+      "CR = 0,960 sehingga konsisten",
+      "CR = 0 karena RI selalu diabaikan"
+    ],
+    "answer": 1,
+    "explanation": "CR = 0,06/0,90 = 0,0667; karena ≤ 0,10, matriks konsisten.",
+    "materialRef": "AHP · Perhitungan CR"
+  },
+  {
+    "id": 59,
+    "topic": "AHP",
+    "difficulty": "Sulit",
+    "type": "Hitungan",
+    "competency": "Nilai akhir",
+    "question": "Berdasarkan contoh AHP materi, bobot kriteria IPK = 0,466 dan bobot lokal IPK untuk Cici = 0,558. Kontribusi IPK terhadap skor akhir Cici paling dekat dengan ...",
+    "options": [
+      "0,020",
+      "0,146",
+      "0,260",
+      "0,466"
+    ],
+    "answer": 2,
+    "explanation": "Kontribusi = 0,466 × 0,558 ≈ 0,260, sesuai rincian perhitungan contoh materi.",
+    "materialRef": "AHP · Nilai Akhir"
+  },
+  {
+    "id": 60,
+    "topic": "AHP",
+    "difficulty": "Sulit",
+    "type": "Hitungan",
+    "competency": "Studi kasus ranking",
+    "question": "Dalam hasil ranking contoh AHP pada materi, urutan alternatif dari terbaik ke terendah adalah ...",
+    "options": [
+      "Andi → Cici → Budi",
+      "Budi → Andi → Cici",
+      "Cici → Andi → Budi",
+      "Cici → Budi → Andi"
+    ],
+    "answer": 2,
+    "explanation": "Skor akhir contoh adalah Cici 0,466; Andi 0,303; Budi 0,231.",
+    "materialRef": "AHP · Ranking Contoh"
+  }
+]
